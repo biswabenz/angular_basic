@@ -1,0 +1,9 @@
+.red-color {
+    color: red;
+    background-color: aliceblue;
+}
+
+.shape {
+    border-radius: 50%;
+    background-color: yellow;
+}
