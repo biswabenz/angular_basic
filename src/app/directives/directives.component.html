@@ -3,14 +3,52 @@
 <div *ngIf="isVisible">
     <h3>Data is visible</h3>
 </div>
-<div *ngIf="dataname =='apple'">
-    <h3>product name is apple</h3>
+<!-- <div *ngIf="dataname =='apple'"> -->
+<!-- <h3>product name is apple</h3> -->
 
-    <div *ngIf="productname == 'apple' else productelse">
-        <h2> product name is apple</h2>
+<div *ngIf="productname == 'apple' else productelse">
+    <h2> product name is apple</h2>
+</div>
+<ng-template #productelse>
+    <h3>product name is mac</h3>
+</ng-template>
+
+<!-- ngFor operation  ,ngFor is similar as For of loop-->
+<!-- <p *ngFor="let i of array">{{i}}</p> -->
+<table>
+    <thead>
+        <tr>
+            <th>sr.no</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employeelist;let i=index; ">
+            <td>{{i+1}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.designation}}</td>
+            <td>{{employee.age}}</td>
+        </tr>
+    </tbody>
+</table>
+<br/>
+
+<!-- *ngSwitch Operation -- this is used to execute one condition from multiple condition. rest condition not
+    executed by *ngSwitch-->
+<div [ngSwitch]="userchoice">
+    <div *ngSwitchCase="'Bike'">
+        <h3>user choice is Bike</h3>
     </div>
-    <ng-template #productelse>
-        <h3>product name is mac</h3>
-    </ng-template>
+    <div *ngSwitchCase="'Bus'">
+        <h3>user choice is Bus</h3>
+    </div>
+    <div *ngSwitchCase="'Train'">
+        <h3>user choice is Train</h3>
+    </div>
+    <div *ngSwitchDefault>
+        <h3> user choice is default</h3>
 
-    <!-- ngFor operation -->
+    </div>
+</div>
